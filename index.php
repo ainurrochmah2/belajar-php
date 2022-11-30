@@ -41,7 +41,8 @@ mysqli_close($con);
 </head>
 <body>
     <h1>Data Mahasiswa</h1>
-    <table border="1" style="width:100%;">
+    <a href="insert.php">Tambah Data</a><br>
+    <br><table border="1" style="width:100%;">
         <tr>
             <th>Id Jurusan</th>
             <th>NIM</th>
@@ -61,6 +62,12 @@ mysqli_close($con);
             <td><?php echo $value["tempat_lahir"]; ?></td>
             <td><?php echo $value["tanggal_lahir"]; ?></td>
             <td><?php echo $value["alamat"]; ?></td>
+            <td>
+                <a href="<?php echo "update.php?id=".$value["id"]; ?>">Edit</a>
+                 | 
+                <a href="<?php echo "delete.php?id=".$value["id"]; ?>">Delete</a>
+                
+            </td>
             
         </tr>
         

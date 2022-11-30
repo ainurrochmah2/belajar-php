@@ -1,7 +1,7 @@
 <?php
 
 //tangkap data dari form submit
-if (isset($_POST["submit"])){
+if (isset($_POST['submit'])){
     $id_jurusan = $_POST['id_jurusan'];
     $nim = $_POST['nim'];
     $nama = $_POST['nama'];
@@ -17,7 +17,7 @@ if (isset($_POST["submit"])){
     if(mysqli_connect_errno()){
         echo "Koneksi gagal ". mysqli_connect_error();
     } else{
-        echo "Koneksi berhasil";
+        echo "Koneksi berhasil ";
     }
 
     //buat sql query untuk insert ke databases
@@ -29,7 +29,7 @@ if (isset($_POST["submit"])){
     if (mysqli_query($con,$sql)){
         echo "Data berhasil ditambahkan";
     }else{
-        echo "Ada error ". mysqli_error();
+        echo "Ada error ". mysqli_error($con);
     }
 
     mysqli_close($con);
@@ -57,6 +57,7 @@ if (isset($_POST["submit"])){
         <br>Tanggal Lahir (yyyy-mm-dd): <input type="text" name="tanggal_lahir"><br>
         <br>Alamat: <input type="text" name="alamat"><br>
         <br><button type="submit" name="submit">Tambah Data</button>
+        <a href="<?php  echo "index.php"; ?>">Lihat Data Mahasiswa</a>
     </form>
 </body>
 </html>
